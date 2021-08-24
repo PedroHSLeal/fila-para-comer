@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 16px;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 20px black;
+}
+
+.Form div {
+    width: 80%;
+    
+}
+
+.Form input {
+    width: 100%;
+}
+
+.Form label {
+    display: block;
+    text-align: center;
+}
