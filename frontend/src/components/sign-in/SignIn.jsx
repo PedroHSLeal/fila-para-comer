@@ -1,27 +1,41 @@
 import styles from "./SignIn.module.scss"
+import { useForm } from "react-hook-form"
 
-function SignIn() {
+export default function SignIn() {
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm()
+    const onSubmit = (data) => console.log(data)
+
+    console.log(watch("name"))
+
     return (
         <main>
             <section id="sign-in">
                 <div>
                     <h1 className={styles.title}>Food Stack</h1>
 
-                    <form className={styles.form}>
+                    <form
+                        className={styles.form}
+                        onSubmit={handleSubmit(onSubmit)}
+                    >
                         <div className={styles.row}>
-                            <input type="text" placeholder="Name" />
+                            <input {...register("name", { required: true })} />
                         </div>
                         <div className={styles.row}>
-                            <input type="text" placeholder="Nickname" />
+                            <input {...register("nickname")} />
                         </div>
                         <div className={styles.row}>
-                            <input type="email" placeholder="Email" />
+                            <input {...register("email")} />
                         </div>
                         <div className={styles.row}>
-                            <input type="text" placeholder="Telephone" />
+                            <input {...register("telephone")} />
                         </div>
                         <div className={styles.row}>
-                            <input type="text" placeholder="CEP" />
+                            <input {...register("cep")} />
                         </div>
 
                         <button type="submit">Sign In</button>
@@ -31,5 +45,3 @@ function SignIn() {
         </main>
     )
 }
-
-export default SignIn
